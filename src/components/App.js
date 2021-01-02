@@ -2,6 +2,7 @@ import React from 'react';
 import SearchBar from './SearchBar';
 import youTube from '../apis/Youtube';
 import VideoList from './VideoList';
+import VideoDetails from './VideoDetails';
 
 class App extends React.Component{
     state={
@@ -27,6 +28,7 @@ class App extends React.Component{
         return(
             <div className="ui container" style={{marginTop: '15px'}}>
                 <SearchBar onSubmit={this.onSubmitForm}/>
+                <VideoDetails video={this.state.videoSelected} />
                 <VideoList listOfVideos={this.state.videos} onClickVideoItem={this.onClickVideoItem} />
             </div>
         )
