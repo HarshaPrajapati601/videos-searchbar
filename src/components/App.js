@@ -9,6 +9,9 @@ class App extends React.Component{
         videos: [],
         videoSelected: null
       }
+      componentDidMount(){
+          this.onSubmitForm('cats');
+      }
       onSubmitForm = async (textRecieved) => {
      const response =await youTube.get('/search',{
            params:{
@@ -16,7 +19,8 @@ class App extends React.Component{
            }
        });
        this.setState({
-           videos: response.data.items
+           videos: response.data.items,
+           videoSelected: response.data.items[0]
        })
     }
 
